@@ -32,7 +32,7 @@ def names():
     """Return a list of sample names."""
 
     # Use Pandas to perform the sql query
-    stmt = db.session.query(Opioid).limit(10).statement
+    stmt = db.session.query(Opioid).statement
     df = pd.read_sql_query(stmt, db.session.bind)
 
     # Return a list of the column names (sample names)
