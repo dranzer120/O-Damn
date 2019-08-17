@@ -9,7 +9,7 @@ from sqlalchemy import create_engine
 import pandas as pd
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///opioid_data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db/opioid_data.db'
 db = SQLAlchemy(app)
 
 Base = automap_base()
