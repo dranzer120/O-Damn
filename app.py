@@ -39,7 +39,7 @@ def names():
     return jsonify(list(df.columns)[2:])
 
 if __name__ == "__main__":
-    app.run()
+    app.run(host="0.0.0.0")
 
 # stmt = db.session.query(Opioid).limit(10).statement
 # df = pd.read_sql_query(stmt, db.session.bind)

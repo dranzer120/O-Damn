@@ -12,7 +12,9 @@
 .media-body h5{color: orangered;}
 .media i{color: darkgray;}
 
-
+.moveLeft{
+	float:left
+}
 .item img{
 	-webkit-transition: 0.6 ease;
 	transition: 0.6s ease;
