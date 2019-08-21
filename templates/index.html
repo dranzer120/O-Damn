@@ -106,14 +106,48 @@
      <div class="row orange-line"></div>
      
      <div class="row">
-      <div id="male-female-chart"></div>
-      <div id="race-chart"></div>
-      <div id="week-chart"></div>
+      <div id="male-female-chart">
+        <strong>Gender:</strong>
+        <a class='reset'
+          href='javascript:MaleOrFemaleChart.filterAll();dc.redrawAll();'
+          style='visibility: show;'>Reset</a>
+      </div>
+      <div id="age-chart">
+        <strong>Age:</strong>
+        <a class='reset'
+          href='javascript:AgeChart.filterAll();dc.redrawAll();'
+          style='visibility: show;'>Reset</a>
+      </div>
+      <div id="race-chart">
+        <strong>Race:</strong>
+        <a class='reset'
+          href='javascript:RaceChart.filterAll();dc.redrawAll();'
+          style='visibility: show;'>Reset</a>
+        </div>
+      <div id="week-chart">
+        <strong>WeekChart:</strong>
+        <a class='reset'
+          href='javascript:WeekChart.filterAll();dc.redrawAll();'
+          style='visibility: show;'>Reset</a>
+      </div>
+      <div id="data-count"class='dc-data-count'>
+          <span class='filter-count'></span>
+          selected out of <span class='total-count'></span> records.
+         </div>
     </div>
 
-    <div>
-      <div id="bar-chart"></div>
+    <div class="row">
+      <div id="bar-chart">
+          <strong>BarChart:</strong>
+          <a class='reset'
+          href='javascript:DrugChart.filterAll();dc.redrawAll();'
+          style='visibility: show;'>Reset</a>
+      </div>
+      <table id='data-table' class="table table-hover dc-data-table">
+      </table>
     </div>
+
+
    	<div class="row mt-4">
    		<div class="col-md-6" style="padding: 0">
    			<p class="hero-text">

@@ -3,6 +3,9 @@ var MaleOrFemaleChart = dc.pieChart('#male-female-chart');
 var RaceChart = dc.pieChart('#race-chart');
 var DrugChart = dc.barChart('#bar-chart');
 var WeekChart = dc.rowChart('#week-chart');
+var AgeChart = dc.pieChart('#age-chart');
+var DrugCount = dc.dataCount('.dc-data-count');
+var DrugTable = dc.dataTable('.dc-data-table');
 
 d3.csv("/static/data/ConnecticutAccidentalDeath.csv").then(function (data) {
     console.log(data)
@@ -38,7 +41,7 @@ d3.csv("/static/data/ConnecticutAccidentalDeath.csv").then(function (data) {
     var moveMonths = ndx.dimension(function (d) {
         return d.month;
     });
-    console.log(data[0].parsed_date)
+    
 
     //Create Gender Dimension
     var MaleOrFemale = ndx.dimension(function (d) {
@@ -61,6 +64,7 @@ d3.csv("/static/data/ConnecticutAccidentalDeath.csv").then(function (data) {
         var name = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
         return day + '.' + name[day];
     });
+
     var dayOfWeekGroup = dayOfWeek.group();
 
     //Create Dimension drugs
@@ -68,11 +72,26 @@ d3.csv("/static/data/ConnecticutAccidentalDeath.csv").then(function (data) {
         return d.count;
     });
 
+    var age = ndx.dimension(function (d) {
+        var actual_age = d.Age
+        if (actual_age <= 25) {
+            return 'Youth';
+        } else if (actual_age > 25 && actual_age <= 35) {
+            return 'Young Adult';
+        } else if (actual_age > 35 && actual_age <= 65) {
+            return 'Middle Age';
+        } else {
+            return 'Senior';
+        }
+    });
+    var AgeGroup = age.group().reduceSum(function (d) {
+        return d.count;
+    });
 
     MaleOrFemaleChart
-    .width(320)
-    .height(320)
-    .radius(120)
+    .width(180)
+    .height(180)
+    .radius(80)
     .dimension(MaleOrFemale)
     .group(MaleOrFemaleGroup)
     .label(function (d) {
@@ -87,15 +106,23 @@ d3.csv("/static/data/ConnecticutAccidentalDeath.csv").then(function (data) {
     })
 
     RaceChart
-    .width(320)
-    .height(320)
-    .radius(120)
+    .width(180)
+    .height(180)
+    .radius(80)
     .dimension(race)
     .group(raceGroup)
 
+    AgeChart
+    .width(180)
+    .height(180)
+    .radius(80)
+    .dimension(age)
+    .group(AgeGroup)
+    .innerRadius(30)
+
     WeekChart /* dc.rowChart('#day-of-week-chart', 'chartGroup') */
-        .width(280)
-        .height(280)
+        .width(200)
+        .height(200)
         .margins({top: 20, left: 30, right: 10, bottom: 20})
         .group(dayOfWeekGroup)
         .dimension(dayOfWeek)
@@ -109,26 +136,37 @@ d3.csv("/static/data/ConnecticutAccidentalDeath.csv").then(function (data) {
         .elasticX(true)
         .xAxis().ticks(6);
 
+        DrugCount 
+        .crossfilter(ndx)
+        .groupAll(all)
+        .html({
+            some: '<strong>%filter-count</strong> selected out of <strong>%total-count</strong> records' +
+                ' | <a href=\'javascript:dc.filterAll(); dc.renderAll();\'>Reset All</a>',
+            all: 'All records selected. Please click on the graph to apply filters.'
+        });
     DrugChart
-        .width(990) /* dc.barChart('#monthly-volume-chart', 'chartGroup'); */
+        .width(990)
         .height(400)
         .margins({top: 30, right: 50, bottom: 50, left: 50})
         .dimension(moveMonths)
         .group(monthlyMoveGroup)
         .centerBar(false)
         .gap(1)
-        .x(d3.scaleTime().domain([new Date(2012, 1, 1), new Date(2018, 12, 31)]))
+        .x(d3.scaleTime().domain([new Date(2012, 0, 1), new Date(2018, 11, 31)]))
         .round(d3.timeMonth.round)
         .xUnits(d3.timeMonths)
+        .mouseZoomable(true)
         .xAxisLabel('Years')
         .yAxisLabel('# of Drugs')
 
-    // DrugChart.xAxis().tickFormat(
-    //     function(v){
-    //         console.log(v)
-    //         return v.getMonth() + 1;
-    //     }
-    //)
+    DrugTable 
+        .dimension(dateDimension)
+        .section(function (d) {
+            var format = d3.format('02d');
+            return d3.timeYear(d.parsed_date).getFullYear() + '/' + format((d.parsed_date.getMonth() + 1));
+        })
+        .columns(['Date','Age','Sex','Race','COD'])
+
     
     dc.renderAll();
 
