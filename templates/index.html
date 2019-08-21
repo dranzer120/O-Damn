@@ -98,23 +98,22 @@
 </div>
    
 
-  <div class="row">
-    <div id="male-female-chart"></div>
-    <div id="race-chart"></div>
-    <div id="week-chart"></div>
-  </div>
-  <div>
-    <div id="bar-chart"></div>
-  </div>
-   
-   
    <div id="dashboard_link" class="container mt-5 pb-5">
    	<div class="row">
-   		<h1>My Top Nas Hits</h1>
+   		<h1>O-Damn Dashboard</h1>
    	</div>
    	
-   	<div class="row orange-line"></div>
-   	
+     <div class="row orange-line"></div>
+     
+     <div class="row">
+      <div id="male-female-chart"></div>
+      <div id="race-chart"></div>
+      <div id="week-chart"></div>
+    </div>
+
+    <div>
+      <div id="bar-chart"></div>
+    </div>
    	<div class="row mt-4">
    		<div class="col-md-6" style="padding: 0">
    			<p class="hero-text">
@@ -467,7 +466,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.1/dc.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-    <script src="{{ url_for('static', filename='css/style.css') }}"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
   
   </body>
 </html>
