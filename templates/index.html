@@ -35,7 +35,7 @@
         <a class="nav-link" href="#dashboard_link">Dashboard</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#portfolio_link">Portfolio</a>
+        <!-- <a class="nav-link" href="#portfolio_link">Portfolio</a> -->
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#aboutus_link">About Us</a>
@@ -143,129 +143,61 @@
           href='javascript:DrugChart.filterAll();dc.redrawAll();'
           style='visibility: show;'>Reset</a>
       </div>
-      <table id='data-table' class="table table-hover dc-data-table">
-      </table>
+      <div>
+          <div class="row margin-top-50">
+              <div class="col-md-3">
+                <aside class="filters">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">Filter Search</div>
+                    <div class="panel-body">
+                      <form>
+                        <div class="form-group">
+                          <ul class="list-group" id="filters">
+                            <li class="filter list-group-item">
+                              <label for="date">Enter a Date</label>
+                              <input class="form-control" id="datetime" type="text" placeholder="1/11/2011">
+                            </li>
+                            <li class="filter list-group-item">
+                              <label for="date">Enter a Age</label>
+                              <input class="form-control" id="ages" type="text" placeholder="Age">
+                            </li>
+                            <li class="filter list-group-item">
+                              <label for="date">Enter a Sex</label>
+                              <input class="form-control" id="sexes" type="text" placeholder="Sex">
+                            </li>
+                            <li class="filter list-group-item">
+                              <label for="date">Enter a Race</label>
+                              <input class="form-control" id="races" type="text" placeholder="Race">
+                            </li>
+                            <li class="filter list-group-item">
+                              <label for="date">Enter a Cause Of Death</label>
+                              <input class="form-control" id="deaths" type="text" placeholder="Death">
+                            </li>
+                          </ul>
+                        </div>
+                        <button id="filter-btn" type="button" class="btn btn-default">Filter Table</button>
+                      </form>
+                    </div>
+                  </div>
+                </aside>
+              </div>
+        <div class="col-md-9">
+            <div id="table-area" class="">
+                <h1 class="text-center loader" id="loader"></h1>    
+            <table id='data-table' class="table table-hover dc-data-table">
+            </table>
+            </div>
+        </div>
+      </div>
+      
     </div>
 
 
-   	<div class="row mt-4">
-   		<div class="col-md-6" style="padding: 0">
-   			<p class="hero-text">
-   				The World Is Yours
-   			</p>
-   		</div>
-   	</div>
+  
    	
-   	<div class="row">
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - N.Y. State Of Mind</h5>
-   					Rappers; I monkey flip 'em with the funky rhythm I be kickin'
-                    Musician, inflictin', composition
-                    Of pain, I'm like Scarface sniffin' cocaine
-                    Holdin' an M16, see with the pen I'm extreme
-                    Now, bullet holes left in my peepholes
-                    I'm suited up in street clothes, hand me a 9 and I'll defeat foes
-                    Y'all know my steelo, with or without the airplay.
-   				</div>
-   			</div>
-   		</div>
+   	
+   	
    		
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - The World Is Yours</h5>
-   					I sip the Dom P, watchin' Gandhi 'til I'm charged, then
-                    Writin' in my book of rhymes, all the words past the margin
-                    Behold the mic I'm throbbin', mechanical movement
-                    Understandable smooth shit that murderers move with
-                    The thief's theme, play me at night, they won't act right
-                    The fiend of hip-hop has got me stuck like a crack pipe.
-   				</div>
-   			</div>
-   		</div>
-   	</div>
-   	
-   	
-   	
-   		<div class="row mt-4">
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - It Aint Hard To Tell</h5>
-   					It ain't hard to tell, I excel, then prevail
-                    The mic is contacted, I attract clientele
-                    My mic check is life or death, breathin' a sniper's breath
-                    I exhale the yellow smoke of buddha through righteous steps
-                    Deep like The Shining, sparkle like a diamond
-                    Sneak a Uzi on the island in my army jacket linin'
-                    Hit the Earth like a comet—invasion!
-                    Nas is like the Afrocentric Asian: half-man, half-amazin.
-   				</div>
-   			</div>
-   		</div>
-   		
-   		
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - Represent </h5>
-   					Straight up, shit is real
-                    And any day could be your last in the jungle
-                    Get murdered on a humble, guns'll blast, niggas tumble
-                    The corners is the hot spot, full of mad criminals
-                    Who don't care, guzzling beers, we all stare
-                    At the out-of-towners
-                    (Ay, yo, yo, who that?), they better break North
-                    Before we get the four pounders and take their face off
-                    The streets is filled with undercovers
-                    Homicide chasing brothers
-   				</div>
-   			</div>
-   		</div>
-   	</div>
-   	
-   	
-   	
-   	<div class="row mt-4">
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - Life's A Bitch</h5>
-   					I woke up early on my born day; I'm 20, it's a blessin'
-                    The essence of adolescence leaves my body, now I'm fresh and
-                    My physical frame is celebrated ‘cause I made it
-                    One quarter through life, some godly-like thing created
-                    Got rhymes 365 days annual, plus some
-                    Load up the mic and bust one, cuss while I pus from
-                    My skull, ‘cause it's pain in my brain vein, money maintain
-                    Don't go against the grain, simple and plain.
-   				</div>
-   			</div>
-   		</div>
-   		
-   		
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - Nas Is Like</h5>
-   					Freedom or jail, clips inserted, a baby's being born
-                    Same time a man is murdered—the beginning and end
-                    As far as rap go, it's only natural I explain
-                    My plateau, and also, what defines my name
-                    First it was Nasty, but times have changed
-                    Ask me now, I'm the artist, but hardcore, my sign's for pain.
-   				</div>
-   			</div>
-   		</div>
-   	</div>
    	
     </div>
    
@@ -274,15 +206,15 @@
    
    <div id="portfolio_link" class="container mt-5">
    	<div class="row text-center">
-   		<div class="col-sm-12"><h1>Portfolio</h1></div>
+   		<div class="col-sm-12"><h1></h1></div>
    	</div>
    	
-   	<div class="orange-line m-auto"></div>
+   	<!-- <div class="orange-line m-auto"></div> -->
    	
    	<div class="row mt-3">
    		<div class="col-sm-12">
    			<p class="hero-text text-center">
-   				Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias<br/>  autem provident. Odit ab aliquam dolor eius.
+
    			</p>
    		</div>
    	</div>
@@ -318,115 +250,7 @@
    
    
    
- <div class="container-fluid bg-gray">
- 	<div class="container pt-5">
- 		<div class="row">
- 			<div class="col-sm-12 text-center">
- 				<h1 class="pb-3">Friquently Ask Questions</h1>
- 				<div class="orange-line m-auto"></div>
- 				<div class="row mt-3">
- 					<p class="hero-text m-auto">Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus<br> alias autem provident. Odit ab aliquam dolor eius.</p>
- 				</div>
- 			</div>
- 		</div>
- 	</div>
- 	
- 	 <div class="container pt-5 pb-5">
-<div class="row">
-<div class="col-md-6">
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    
-       <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingOne">
-             <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Put Stuff Here #1
-        </a>
-      </h4>
-
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.le VHS.</div>
-        </div>
-    </div>
-    
-    <div class="panel panel-default mt-5">
-        <div class="panel-heading" role="tab" id="headingTwo">
-             <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Put Stuff Here #2
-        </a>
-      </h4>
-
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-        </div>
-    </div>
-    
-    <div class="panel panel-default mt-5">
-        <div class="panel-heading" role="tab" id="headingThree">
-             <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Put Stuff Here #3
-        </a>
-      </h4>
-
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
-        </div>
-    </div>
-</div>
-</div>
-
-<div class="col-md-6">
-<div class="panel-group" id="accordion2" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingFore">
-             <h4 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseFore" aria-expanded="true" aria-controls="collapseOne">
-          Collapsible Group Stuff #1
-        </a>
-      </h4>
-
-        </div>
-        <div id="collapseFore" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingFore">
-            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.le VHS.</div>
-        </div>
-    </div>
-    
-    <div class="panel panel-default mt-5">
-        <div class="panel-heading" role="tab" id="headingFive">
-             <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          Collapsible Group Stuff #2
-        </a>
-      </h4>
-
-        </div>
-        <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.</div>
-        </div>
-    </div>
-    
-    <div class="panel panel-default mt-5">
-        <div class="panel-heading" role="tab" id="headingSix">
-             <h4 class="panel-title">
-        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-          Collapsible Group Stuff #3
-        </a>
-      </h4>
-
-        </div>
-        <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingSix">
-            <div class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. </div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-</div>
+ 
  	
  </div>  
    
