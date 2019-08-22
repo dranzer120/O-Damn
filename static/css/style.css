@@ -1,4 +1,10 @@
+.race{
+	margin-top: 20px;
+}
 
+.mapid{
+	height: 500px;
+}
 
 .bg-light{background-color: white !important;}
 .navbar-light .navbar-nav .nav-link{color: orangered;}

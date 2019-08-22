@@ -11,6 +11,18 @@
     <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/dc/3.1.1/dc.css"/>
 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin=""/>
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+    integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+    crossorigin=""></script>
+
+    <!-- Marker Cluster JS & CSS -->
+    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
 
     <title>O-DAMN</title>
   </head>
@@ -99,11 +111,12 @@
    
 
    <div id="dashboard_link" class="container mt-5 pb-5">
+
    	<div class="row">
    		<h1>O-Damn Dashboard</h1>
    	</div>
    	
-     <div class="row orange-line"></div>
+     <!-- <div class="row orange-line"></div> -->
      
      <div class="row">
       <div id="male-female-chart">
@@ -118,7 +131,10 @@
           href='javascript:AgeChart.filterAll();dc.redrawAll();'
           style='visibility: show;'>Reset</a>
       </div>
-      <div id="race-chart">
+     </div> 
+
+     <div class="row">
+      <div id="race-chart" class="race">
         <strong>Race:</strong>
         <a class='reset'
           href='javascript:RaceChart.filterAll();dc.redrawAll();'
@@ -130,6 +146,9 @@
           href='javascript:WeekChart.filterAll();dc.redrawAll();'
           style='visibility: show;'>Reset</a>
       </div>
+     </div>
+     
+    <div class="row">
       <div id="data-count"class='dc-data-count'>
           <span class='filter-count'></span>
           selected out of <span class='total-count'></span> records.
@@ -147,127 +166,13 @@
       </table>
     </div>
 
+    <div id="mapid" class="mapid"></div>
 
-   	<div class="row mt-4">
-   		<div class="col-md-6" style="padding: 0">
-   			<p class="hero-text">
-   				The World Is Yours
-   			</p>
-   		</div>
-   	</div>
    	
-   	<div class="row">
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - N.Y. State Of Mind</h5>
-   					Rappers; I monkey flip 'em with the funky rhythm I be kickin'
-                    Musician, inflictin', composition
-                    Of pain, I'm like Scarface sniffin' cocaine
-                    Holdin' an M16, see with the pen I'm extreme
-                    Now, bullet holes left in my peepholes
-                    I'm suited up in street clothes, hand me a 9 and I'll defeat foes
-                    Y'all know my steelo, with or without the airplay.
-   				</div>
-   			</div>
-   		</div>
+  </div>
    		
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - The World Is Yours</h5>
-   					I sip the Dom P, watchin' Gandhi 'til I'm charged, then
-                    Writin' in my book of rhymes, all the words past the margin
-                    Behold the mic I'm throbbin', mechanical movement
-                    Understandable smooth shit that murderers move with
-                    The thief's theme, play me at night, they won't act right
-                    The fiend of hip-hop has got me stuck like a crack pipe.
-   				</div>
-   			</div>
-   		</div>
-   	</div>
    	
-   	
-   	
-   		<div class="row mt-4">
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - It Aint Hard To Tell</h5>
-   					It ain't hard to tell, I excel, then prevail
-                    The mic is contacted, I attract clientele
-                    My mic check is life or death, breathin' a sniper's breath
-                    I exhale the yellow smoke of buddha through righteous steps
-                    Deep like The Shining, sparkle like a diamond
-                    Sneak a Uzi on the island in my army jacket linin'
-                    Hit the Earth like a comet—invasion!
-                    Nas is like the Afrocentric Asian: half-man, half-amazin.
-   				</div>
-   			</div>
-   		</div>
-   		
-   		
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - Represent </h5>
-   					Straight up, shit is real
-                    And any day could be your last in the jungle
-                    Get murdered on a humble, guns'll blast, niggas tumble
-                    The corners is the hot spot, full of mad criminals
-                    Who don't care, guzzling beers, we all stare
-                    At the out-of-towners
-                    (Ay, yo, yo, who that?), they better break North
-                    Before we get the four pounders and take their face off
-                    The streets is filled with undercovers
-                    Homicide chasing brothers
-   				</div>
-   			</div>
-   		</div>
-   	</div>
-   	
-   	
-   	
-   	<div class="row mt-4">
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - Life's A Bitch</h5>
-   					I woke up early on my born day; I'm 20, it's a blessin'
-                    The essence of adolescence leaves my body, now I'm fresh and
-                    My physical frame is celebrated ‘cause I made it
-                    One quarter through life, some godly-like thing created
-                    Got rhymes 365 days annual, plus some
-                    Load up the mic and bust one, cuss while I pus from
-                    My skull, ‘cause it's pain in my brain vein, money maintain
-                    Don't go against the grain, simple and plain.
-   				</div>
-   			</div>
-   		</div>
-   		
-   		
-   		<div class="col-md-6">
-   			<div class="media">
-   				<h1><i class="fa fa-file mr-4" aria-hidden="true"></i></h1>
-   				<div class="media-body">
-   					<h5 class="mt-0">NAS - Nas Is Like</h5>
-   					Freedom or jail, clips inserted, a baby's being born
-                    Same time a man is murdered—the beginning and end
-                    As far as rap go, it's only natural I explain
-                    My plateau, and also, what defines my name
-                    First it was Nasty, but times have changed
-                    Ask me now, I'm the artist, but hardcore, my sign's for pain.
-   				</div>
-   			</div>
-   		</div>
-   	</div>
-   	
-    </div>
+    <!-- </div> -->
    
    
    
